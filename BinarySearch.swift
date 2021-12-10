@@ -6,18 +6,19 @@
 /// - Complexity: O(log n)
 func binarySearch(array: [Int], element: Int) -> Int? {
     
-    var minArraySize: Int = 0
-    var maxArraySize: Int = array.count
+    var maxIndex: Int = integers.count - 1
+    var minIndex: Int = 0
     
-    while minArraySize <= maxArraySize {
-        let middleIndex = (minArraySize + maxArraySize) / 2
+    while minIndex <= maxIndex {
+        let middle = (minIndex + maxIndex) / 2
+        let guess = integers[middle]
         
-        if array[middleIndex] == element {
-            return middleIndex
-        } else if array[middleIndex] > element {
-            maxArraySize = middleIndex
-        } else if array[middleIndex] < element {
-            minArraySize = middleIndex
+        if guess == value {
+            return middle
+        } else if guess > value {
+            maxIndex = middle - 1
+        } else if guess < value {
+            minIndex = middle + 1
         }
     }
     return nil
