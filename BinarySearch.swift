@@ -4,14 +4,15 @@
 ///   - element: Integer to search.
 /// - Returns: If algorithm found element function return element *index* in array. In others case function return *nil*.
 /// - Complexity: O(log n)
-func binarySearch(array: [Int], element: Int) -> Int? {
+func binarySearch<T: Comparable>(strings: [T], value: T) -> Int? {
     
-    var maxIndex: Int = integers.count - 1
+    var maxIndex: Int = strings.count - 1
     var minIndex: Int = 0
     
     while minIndex <= maxIndex {
+        
         let middle = (minIndex + maxIndex) / 2
-        let guess = integers[middle]
+        let guess = strings[middle]
         
         if guess == value {
             return middle
